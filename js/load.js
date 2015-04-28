@@ -15,14 +15,12 @@ function Load(){
 	{
 		$('.toggle').bind('touchend',chnF);
 		$('.toggle').bind('click',chnF);
-		function chnF(){if(nF == 0){nF = 1;addThingM();}}
-		
 	}
 	else if(skel.isActive('mobile'))
 	{
 		$('.toggle').bind('touchend',chmF);
 		$('.toggle').bind('click',chmF);
-		function chmF(){if(mF == 0){mF = 1; addThingM();}}
+		
 	}
 	else
 	{
@@ -30,7 +28,18 @@ function Load(){
 	}
 	show();	
 }
-
+function chnF(){
+	if(nF == 0)
+	{
+		nF = 1;addThingM();
+	}
+}
+function chmF(){
+	if(mF == 0)
+	{
+		mF = 1; addThingM();
+	}
+}
 function addThingM(){
 	$(nav).ready(function() {
 		var StyleHead = '<a class="link depth-1" href="javascript:ChangeYear(';

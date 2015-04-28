@@ -1089,8 +1089,9 @@
 			display: inline-block;
 			width: 5em;
 		}
-		
+	
 		#topPanel .link.depth-1:hover,
 		#sidePanel .link.depth-1:hover {
 			  background-color: #7c8081;
 		}
+	

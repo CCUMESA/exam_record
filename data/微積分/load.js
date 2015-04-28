@@ -23,16 +23,20 @@ function Load(){
 		$('.toggle').bind('touchend',chnF);
 		$('.toggle').bind('click',chnF);
 		function chnF(){if(nF == 0){nF = 1;addThingM();}}
+		
 	}
 	else if(skel.isActive('mobile'))
 	{
 		$('.toggle').bind('touchend',chmF);
 		$('.toggle').bind('click',chmF);
-		function chmF(){if(mF == 0){mF = 1; addThingM();}
-		}
+		function chmF(){if(mF == 0){mF = 1; addThingM();}}
 	}
 	else
+	{
 		addThingW();
+		
+	}
+		
 	
 	show();	
 }
@@ -41,7 +45,9 @@ function addThingM(){
 	$(nav).ready(function() {
 		var StyleHead = '<a class="link depth-1" href="javascript:ChangeYear(';
 		var StyleMiddle = ')" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);"><span class="indent-1"></span>';
-		var nav = $('[data-action="navList"]>nav>[href="##"]');
+		//var nav = $('[data-action="navList"]>nav>[href="##"]');
+		var nav = $('[data-action="navList"]>nav>a:eq(1)');
+		//alert("aa");
 		for (var i =data.length -1; i >=0 ; i--)
 		{
 			nav.after(StyleHead + i + StyleMiddle + data[i][0] + Se(data[i][1]) + Ti(data[i][2]) +  '</a>');
@@ -51,20 +57,25 @@ function addThingM(){
 
 function addThingW(){
 
-	var StyleHead = '<li style="white-space: nowrap;"><a href="javascript:ChangeYear(';
-	var StyleMiddle = ')" style="display: block;">';
+	var StyleHead = '<li style="white-space: nowrap;"><a  style="display: block;" onclick="ChangeYear(' // href="javascript:ChangeYear(';
+	var StyleMiddle1 = ')" touchstart="ChangeYear(';
+	var StyleMiddle2 = ')"> ';
 	var StyleFoot = '</a></li>';
+	var nav = $('.droptron:eq(0)>li[style="white-space: nowrap"]');
 	$(".y").empty(); //清空menu內容
 	
 	for(var i =0; i < data.length; i++)
 	{
-		var str = StyleHead + i + StyleMiddle + data[i][0] + Se(data[i][1]) + Ti(data[i][2]) + StyleFoot;
+		var str = StyleHead + i + StyleMiddle1 + i + StyleMiddle2 + data[i][0] + Se(data[i][1]) + Ti(data[i][2]) + StyleFoot;
 		$(".y").append(str);
 	}
 }
 function ChangeYear(i){
+	alert('11');
 	index = i;
-	show()
+	show();
+	$("html,body").animate({scrollTop: $("#main").offset().top-160}, 1000);
+
 }
 			
 function Se(s){	return s ==0?'上':'下';	}
@@ -95,6 +106,6 @@ function show() {
 	}
 	$("#year_show").empty();
 	$("#year_show").append(data[index][0] + '年' + Se(data[i][1]) + Ti(data[i][2]) + '段考');
-	//$('#main').scrollIntoView();
+	
 }
 

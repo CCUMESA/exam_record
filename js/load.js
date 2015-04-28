@@ -94,7 +94,9 @@ function show() {
 	}
 	$(".content>section").append(str);
 	$("#year_show").empty();
-	$("#year_show").append(data[index][0] + '年' + Se(data[index][1]) + Ti(data[index][2]) + '段考');
+	var str = data[index][0] + '年' + Se(data[index][1]) + Ti(data[index][2]) + '段考';
+	$("#year_show").append(str);
+	document.title = subject + ':' + str + '-中正機械考古網';
 	
 }
 

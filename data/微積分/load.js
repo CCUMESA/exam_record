@@ -95,6 +95,6 @@ function show() {
 	}
 	$("#year_show").empty();
 	$("#year_show").append(data[index][0] + '年' + Se(data[i][1]) + Ti(data[i][2]) + '段考');
-	$('#main').scrollIntoView();
+	//$('#main').scrollIntoView();
 }
 

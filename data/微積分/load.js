@@ -99,10 +99,12 @@ function Ti(t){
 			
 function show() {
 	$(".content>section").empty();
+	var str = "";
 	for(var i =0;i<data[index][3];i++){
 		var url = subject + '/'+ subject + '-' + data[index][0] + '-' + data[index][1] + '-' + data[index][2] + '-' + i +'.jpg';
-		$(".content>section").append('<a class="image featured"><img src="data/' + url + ' "alt="" /></a>');
+		str = str + '\n' + '<a class="image featured"><img src="data/' + url + ' "alt="" /></a>';
 	}
+	$(".content>section").append(str);
 	$("#year_show").empty();
 	$("#year_show").append(data[index][0] + '年' + Se(data[i][1]) + Ti(data[i][2]) + '段考');
 	

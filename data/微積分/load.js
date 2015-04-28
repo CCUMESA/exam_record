@@ -71,7 +71,6 @@ function addThingW(){
 	}
 }
 function ChangeYear(i){
-	alert('11');
 	index = i;
 	show();
 	$("html,body").animate({scrollTop: $("#main").offset().top-160}, 1000);

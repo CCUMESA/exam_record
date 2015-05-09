@@ -97,13 +97,15 @@ function Ti(t){
 function show() {
 	$(".content>section").empty();
 	var str = "";
+	//var lo = '<center><div class="spinner"><div class="cube1"></div><div class="cube2"></div></div></center>';
 	for(var i =0;i<data[index][3];i++){
-		var url = subject + '/'+ subject + '-' + data[index][0] + '-' + data[index][1] + '-' + data[index][2] + '-' + i +'.jpg';
+		var url = grade + '/' + subject + '/'+ subject + '-' + data[index][0] + '-' + data[index][1] + '-' + data[index][2] + '-' + i +'.jpg';
 		str = str + '\n' + '<a class="image featured"><img src="data/' + url + ' "alt="" /></a>';
 	}
 	$(".content>section").append(str);
 	$("#year_show").empty();
-	var str = data[index][0] + '年' + Se(data[index][1]) + Ti(data[index][2]) + '段考';
+	str = data[index][0] + '年' + Se(data[index][1]) + Ti(data[index][2]) + '段考';
+	
 	$("#year_show").append(str);
 	document.title = subject + ':' + str + '-中正機械考古網';
 	

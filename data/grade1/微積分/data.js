@@ -5,3 +5,4 @@ data[2]=[103,0,1,1];
 data[3]=[103,1,1,1];
 data[4]=[104,0,1,3];
 var subject = "微積分";
+var grade = "grade1";

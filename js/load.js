@@ -98,8 +98,8 @@ function show() {
 	$(".content>section").empty();
 	var str = "";
 	//var lo = '<center><div class="spinner"><div class="cube1"></div><div class="cube2"></div></div></center>';
-	for(var i =0;i<data[index][3];i++){
-		var url = grade + '/' + subject + '/'+ subject + '-' + data[index][0] + '-' + data[index][1] + '-' + data[index][2] + '-' + i +'.jpg';
+	for(var i =1;i<=data[index][3];i++){
+		var url = grade + '/' + subject + '/'+ data[index][0] + '-' + data[index][1] + '-' + data[index][2] + '-' + i +'.jpg';
 		str = str + '\n' + '<a class="image featured"><img src="data/' + url + ' "alt="" /></a>';
 	}
 	$(".content>section").append(str);

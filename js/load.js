@@ -97,6 +97,8 @@ function Ti(t){
 function show() {
 	$(".content>section").empty();
 	var str = "";
+	var dw = 'data/' + grade + '/' + subject + '/'+ data[index][0] + '-' + data[index][1] + '-' + data[index][2] + '.pdf';
+	str = str + '<p><a href="' + dw + '">PDF下載</a></p>';
 	//var lo = '<center><div class="spinner"><div class="cube1"></div><div class="cube2"></div></div></center>';
 	for(var i =1;i<=data[index][3];i++){
 		var url = grade + '/' + subject + '/'+ data[index][0] + '-' + data[index][1] + '-' + data[index][2] + '-' + i +'.jpg';

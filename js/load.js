@@ -98,11 +98,12 @@ function show() {
 	$(".content>section").empty();
 	var data_url = "http://ccumesa.github.io/exam_data/";
 	var dw = data_url  + grade + '/' + subject + '/'+ data[index][0] + '-' + data[index][1] + '-' + data[index][2] + '.pdf';
-	str = str + '<p><a href="' + dw + '">PDF下載</a></p>';
+	
+	var str = '<p><a href="' + dw + '">PDF下載</a></p>';
 	
 	for(var i =1;i<=data[index][3];i++){
 		var url = grade + '/' + subject + '/'+ data[index][0] + '-' + data[index][1] + '-' + data[index][2] + '-' + i +'.jpg';
-		str = str + '\n' + '<a class="image featured"><img src="' data_url + url + ' "alt="" /></a>';
+		str = str + '\n' + '<a class="image featured"><img src="' + data_url + url + ' "alt="" /></a>';
 	}
 	$(".content>section").append(str);
 	$("#year_show").empty();

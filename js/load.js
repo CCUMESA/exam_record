@@ -2,15 +2,6 @@
 var index = data.length-1; //當前年份索引值
 
 $(window).load(function(){
-	Load();
-});	
-
-skel.on('change', function() {
-	Load();
-});
-
-function Load(){
-	
 	if (skel.isActive('narrower'))
 	{
 		$('.toggle').bind('touchend',chnF);
@@ -20,24 +11,28 @@ function Load(){
 	{
 		$('.toggle').bind('touchend',chmF);
 		$('.toggle').bind('click',chmF);
-		
 	}
-	else
-	{
-		addThingW();	
-	}
+	else{addThingW();}
+	
 	show();	
-}
+});	
+
+skel.on('change', function() {
+	Load();
+});
+
 function chnF(){
 	if(nF == 0)
 	{
-		nF = 1;addThingM();
+		nF = 1;
+		addThingM();
 	}
 }
 function chmF(){
 	if(mF == 0)
 	{
-		mF = 1; addThingM();
+		mF = 1; 
+		addThingM();
 	}
 }
 function addThingM(){
@@ -48,16 +43,7 @@ function addThingM(){
 		var str = "";
 		for (var i = 0; i < data.length  ; i++)
 		{
-			if(data[i][4] != "")
-			{
-				str = str + StyleHead + i + StyleMiddle + data[i][4] + '</a>';
-			}
-			else
-			{
-				str = str + StyleHead + i + StyleMiddle + data[i][0] + Se(data[i][1]) + Ti(data[i][2]) +  '</a>';
-			}
-			
-			
+			str = str + StyleHead + i + StyleMiddle + title_str(i) + '</a>';
 		}
 		nav.after(str);
 	});
@@ -73,14 +59,7 @@ function addThingW(){
 	var str = "";
 	for(var i =0; i < data.length; i++)
 	{
-		if(data[i][4] != "")
-		{
-			str = str + StyleHead + i + StyleMiddle1 + i + StyleMiddle2 + data[i][4] + StyleFoot;
-		}
-		else
-		{
-			str = str + StyleHead + i + StyleMiddle1 + i + StyleMiddle2 + data[i][0] + Se(data[i][1]) + Ti(data[i][2]) + StyleFoot;
-		}
+		str = str + StyleHead + i + StyleMiddle1 + i + StyleMiddle2 + title_str(i) + StyleFoot;
 	}
 	$(".y").append(str);
 }
@@ -92,7 +71,6 @@ function ChangeYear(i){
 			
 function Se(s){	return s ==0?'上':'下';	}
 function Ti(t){
-
 	switch(t){
 		case 1:
 			a = "第一次";
@@ -110,10 +88,26 @@ function Ti(t){
 	return a;
 }
 
+function title_str(i)
+{
+	var str = ""
+	if(data[i][4] != "")
+	{
+		str = data[i][4];
+	}
+	else
+	{
+		str = data[i][0] + '年' + Se(data[i][1]) + Ti(data[i][2]);
+	}
+	return str;
+}
+
 function show() {
 	$(".content>section").empty();
+	//資料庫網址
 	var data_url = "http://ccumesa.github.io/exam_data/";
-	//data_url = "/data/";
+	
+	//data_url = "/data/";  //本機端資料庫測試用
 	var dw = data_url  + grade + '/' + subject + '/'+ data[index][0] + '-' + data[index][1] + '-' + data[index][2] + '.pdf';
 	
 	var str = '<p><a href="' + dw + '">PDF下載</a></p>';
@@ -124,7 +118,7 @@ function show() {
 	}
 	$(".content>section").append(str);
 	$("#year_show").empty();
-	str = data[index][0] + '年' + Se(data[index][1]) + Ti(data[index][2]) + '段考';
+	str = title_str(index);
 	
 	$("#year_show").append(str);
 	document.title = subject + ':' + str + '-中正機械考古網';

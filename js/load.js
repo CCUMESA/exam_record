@@ -48,7 +48,16 @@ function addThingM(){
 		var str = "";
 		for (var i = 0; i < data.length  ; i++)
 		{
-			str = str + StyleHead + i + StyleMiddle + data[i][0] + Se(data[i][1]) + Ti(data[i][2]) +  '</a>';
+			if(data[i][4] != "")
+			{
+				str = str + StyleHead + i + StyleMiddle + data[i][4] + '</a>';
+			}
+			else
+			{
+				str = str + StyleHead + i + StyleMiddle + data[i][0] + Se(data[i][1]) + Ti(data[i][2]) +  '</a>';
+			}
+			
+			
 		}
 		nav.after(str);
 	});
@@ -64,7 +73,14 @@ function addThingW(){
 	var str = "";
 	for(var i =0; i < data.length; i++)
 	{
-		str = str + StyleHead + i + StyleMiddle1 + i + StyleMiddle2 + data[i][0] + Se(data[i][1]) + Ti(data[i][2]) + StyleFoot;
+		if(data[i][4] != "")
+		{
+			str = str + StyleHead + i + StyleMiddle1 + i + StyleMiddle2 + data[i][4] + StyleFoot;
+		}
+		else
+		{
+			str = str + StyleHead + i + StyleMiddle1 + i + StyleMiddle2 + data[i][0] + Se(data[i][1]) + Ti(data[i][2]) + StyleFoot;
+		}
 	}
 	$(".y").append(str);
 }
@@ -97,6 +113,7 @@ function Ti(t){
 function show() {
 	$(".content>section").empty();
 	var data_url = "http://ccumesa.github.io/exam_data/";
+	//data_url = "/data/";
 	var dw = data_url  + grade + '/' + subject + '/'+ data[index][0] + '-' + data[index][1] + '-' + data[index][2] + '.pdf';
 	
 	var str = '<p><a href="' + dw + '">PDF下載</a></p>';

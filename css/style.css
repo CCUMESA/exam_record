@@ -843,6 +843,8 @@
 			#banner .inner p {
 				letter-spacing: 0.1em;
 				margin: 0;
+				font-size: 135%;
+				font-weight: 800;
 				text-transform: uppercase;
 			}
 

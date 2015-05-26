@@ -129,7 +129,7 @@ function show() {
 	
 	var dw = data_url  + folder_url + data[index][0] + '-' + data[index][1] + '-' + data[index][2] + '.pdf';
 	
-	var str = '<p><a href="' + dw + '" target ="_blank">PDF下載</a></p>';
+	var str = '<p><a href="' + dw + '" target ="_blank">PDF下載<span class="icon fa-cloud-download"></span></a></p>';
 	
 	for(var i =1;i<=data[index][3];i++){
 		var url =data_url + folder_url + format_num(i) +'.jpg';
